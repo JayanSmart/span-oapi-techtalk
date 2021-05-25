@@ -1,0 +1,14 @@
+{
+    "employees": [
+        {
+            "id": 1,
+            "name": "Jayan Smart",
+            "start_date": "2021-01-01"
+        },
+        {
+            "id": 2,
+            "name": "Kyla Staal",
+            "start_date": "2021-05-24"
+        }
+    ]
+}

@@ -1,10 +1,13 @@
 import connexion
 import six
+import json
 
 from swagger_server.models.employee_info_schema import EmployeeInfoSchema  # noqa: E501
 from swagger_server.models.input_error import InputError  # noqa: E501
 from swagger_server.models.server_error import ServerError  # noqa: E501
 from swagger_server import util
+
+import swagger_server.core.tenure
 
 
 def get_tenure_by_id(id):  # noqa: E501
@@ -17,7 +20,17 @@ def get_tenure_by_id(id):  # noqa: E501
 
     :rtype: EmployeeInfoSchema
     """
-    return 'do some magic!'
+    json_data = None
+    with open("../data/employee_data.json", 'r') as file:
+        json_data = json.dumps(file)
+
+    employees = json_data['employees']
+
+    for i in employees:
+        if i.id == id:
+            return EmployeeInfoSchema(id, i.name, swagger_server.core.tenure.calculate_tenure(i.start_date))
+
+    return InputError("There are no employees using id: " + id)
 
 
 def list_versions():  # noqa: E501
@@ -59,4 +72,8 @@ def post_tenure(employee_name, start_date=None):  # noqa: E501
     :rtype: EmployeeInfoSchema
     """
     start_date = util.deserialize_date(start_date)
-    return 'do some magic!'
+    
+    
+    new_employee = swagger_server.core.tenure.add_employee(employee_name, start_date)
+    
+    return new_employee
