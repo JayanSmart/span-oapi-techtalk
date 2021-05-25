@@ -20,7 +20,7 @@ import (
 	//
 	//    sw "github.com/myname/myrepo/go"
 	//
-	sw "https://github.com/JayanSmart/span-oapi-techtalk/server/go/go"
+	sw "github.com/JayanSmart/span-oapi-techtalk/server/go/go"
 )
 
 func main() {
