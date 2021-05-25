@@ -12,8 +12,8 @@ info:
     url: https://opensource.org/licenses/MIT
   description: This is a simple API which is used to as a demo for using OpenAPI to define specifications.
 servers:
-  - url: https://api.server.test/v1
-    description: Test server
+  - url: http://localhost:8080/v1
+    description: Local Test server
 paths:
   /tenure/{id}:
     get:
