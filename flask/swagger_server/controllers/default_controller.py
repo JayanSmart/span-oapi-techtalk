@@ -44,19 +44,7 @@ def get_tenure_by_id(id_):  # noqa: E501
     return InputError("There are no employees using id: " + str(id_))
 
 
-
-def list_versions():  # noqa: E501
-    """List API versions
-
-     # noqa: E501
-
-
-    :rtype: None
-    """
-    return 'do some magic!'
-
-
-def patch_tenure(id, start_date):  # noqa: E501
+def patch_tenure(id_, start_date):  # noqa: E501
     """Update the start date of an employee.
 
     Update the startDate value of some employee by providing their id and the new start date. # noqa: E501
@@ -68,7 +56,22 @@ def patch_tenure(id, start_date):  # noqa: E501
 
     :rtype: EmployeeInfoSchema
     """
-    return 'do some magic!'
+    start_date = util.deserialize_date(start_date)
+    
+    global data
+    employees = json.loads(data)
+
+    found = False
+    for i in employees:
+        if i['id'] == id_:
+            found = True
+    if found:
+        start_date = start_date.__str__()
+        employees[id_]['start_date'] = start_date
+        data = json.dumps(employees)
+        return EmployeeInfoSchema(id_, i['name'], calculate_tenure(i['start_date']))
+
+    return InputError("There are no employees using id: " + str(id_))
 
 
 def post_tenure(employee_name, start_date=None):  # noqa: E501
