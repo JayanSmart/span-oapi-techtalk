@@ -1,0 +1,12 @@
+Metadata-Version: 1.0
+Name: swagger-server
+Version: 1.0.0
+Summary: SPAN Tenure
+Home-page: UNKNOWN
+Author: UNKNOWN
+Author-email: jayan.smart@spandigital.com
+License: UNKNOWN
+Description:     This is a simple API which is used to as a demo for using OpenAPI to define specifications.
+            
+Keywords: Swagger,SPAN Tenure
+Platform: UNKNOWN
