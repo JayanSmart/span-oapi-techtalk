@@ -15,116 +15,14 @@ servers:
   - url: https://api.server.test/v1
     description: Test server
 paths:
-  /:
-    get:
-      operationId: listVersions
-      summary: List API versions
-      responses:
-        "200":
-          description: |-
-            200 response
-          content:
-            application/json:
-              example:
-                {
-                  "versions":
-                    [
-                      {
-                        "status": "CURRENT",
-                        "updated": "2011-01-21T11:33:21Z",
-                        "id": "v2.0",
-                        "links":
-                          [
-                            {
-                              "href": "http://127.0.0.1:8774/v2/",
-                              "rel": "self",
-                            },
-                          ],
-                      },
-                      {
-                        "status": "EXPERIMENTAL",
-                        "updated": "2013-07-23T11:33:21Z",
-                        "id": "v3.0",
-                        "links":
-                          [
-                            {
-                              "href": "http://127.0.0.1:8774/v3/",
-                              "rel": "self",
-                            },
-                          ],
-                      },
-                    ],
-                }
-        "300":
-          description: |-
-            300 response
-          content:
-            application/json:
-              examples:
-                foo:
-                  value: |
-                    {
-                     "versions": [
-                           {
-                             "status": "CURRENT",
-                             "updated": "2011-01-21T11:33:21Z",
-                             "id": "v2.0",
-                             "links": [
-                                 {
-                                     "href": "http://127.0.0.1:8774/v2/",
-                                     "rel": "self"
-                                 }
-                             ]
-                         },
-                         {
-                             "status": "EXPERIMENTAL",
-                             "updated": "2013-07-23T11:33:21Z",
-                             "id": "v3.0",
-                             "links": [
-                                 {
-                                     "href": "http://127.0.0.1:8774/v3/",
-                                     "rel": "self"
-                                 }
-                             ]
-                         }
-                     ]
-                    }
-                bar:
-                  value: |
-                    {
-                     "versions": [
-                           {
-                             "status": "ANOTHER",
-                             "updated": "2011-01-21T11:33:21Z",
-                             "id": "v2.0",
-                             "links": [
-                                 {
-                                     "href": "http://127.0.0.1:8774/v2/",
-                                     "rel": "self"
-                                 }
-                             ]
-                         },
-                         {
-                             "status": "FOOBAR",
-                             "updated": "2013-07-23T11:33:21Z",
-                             "id": "v3.0",
-                             "links": [
-                                 {
-                                     "href": "http://127.0.0.1:8774/v3/",
-                                     "rel": "self"
-                                 }
-                             ]
-                         }
-                     ]
-                    }
-  /tenure:
+  /tenure/{id}:
     get:
       operationId: getTenureById
       summary: get tenure by ID
       description: return the tenure of some given employee, when given the ID of that employee
       parameters:
         - name: "id"
-          in: query
+          in: path
           description: "ID of employee whose tenure is to be returned"
           required: true
           schema:
@@ -137,6 +35,7 @@ paths:
           $ref: "#/components/responses/404"
         "500":
           $ref:   "#/components/responses/500"
+  /tenure:
     post:
       operationId: postTenure
       summary: POST new employee information
