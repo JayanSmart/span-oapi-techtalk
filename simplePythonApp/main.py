@@ -22,7 +22,7 @@ except ApiException as e:
 # create an instance of the API class
 api_instance = swagger_client.DefaultApi(swagger_client.ApiClient(configuration))
 id = 1 # int | ID of employee whose tenure is to be returned
-start_date = 'start_date_example' # str | The date (YYYY-MM-DD) on which the employee started. If not provided, the current date will be used.
+start_date = '2000-12-25' # str | The date (YYYY-MM-DD) on which the employee started. If not provided, the current date will be used.
 
 try:
     # Update the start date of an employee.
