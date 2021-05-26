@@ -21,6 +21,11 @@ data = """[
             "id": 1,
             "name": "Kyla Staal",
             "start_date": "2021-05-24"
+        },
+        {
+            "id": 2,
+            "name": "Travis Pawley",
+            "start_date": "1970-01-01"
         }
     ]"""
 
