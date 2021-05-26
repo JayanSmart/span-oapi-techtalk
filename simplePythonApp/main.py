@@ -7,6 +7,10 @@ from pprint import pprint
 configuration = swagger_client.Configuration()
 configuration.host = 'http://127.0.0.1:8080/v1'
 
+###########
+##  GET  ##
+###########
+
 # create an instance of the API class
 api_instance = swagger_client.DefaultApi(swagger_client.ApiClient(configuration))
 id = 1 # int | ID of employee whose tenure is to be returned
@@ -17,6 +21,10 @@ try:
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->get_tenure_by_id: %s\n" % e)
+
+###########
+## PATCH ##
+###########
 
 # create an instance of the API class
 api_instance = swagger_client.DefaultApi(swagger_client.ApiClient(configuration))
@@ -29,6 +37,10 @@ try:
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->patch_tenure: %s\n" % e)
+
+############
+##  POST  ##
+############
 
 # create an instance of the API class
 api_instance = swagger_client.DefaultApi(swagger_client.ApiClient(configuration))
