@@ -4,6 +4,7 @@ import swagger_client
 from swagger_client.rest import ApiException
 from pprint import pprint
 
+# I added these two lines
 configuration = swagger_client.Configuration()
 configuration.host = 'http://127.0.0.1:8080/v1'
 
