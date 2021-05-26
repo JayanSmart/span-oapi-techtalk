@@ -1,5 +1,4 @@
 from __future__ import print_function
-import time
 import swagger_client
 from swagger_client.rest import ApiException
 from pprint import pprint
@@ -42,5 +41,3 @@ try:
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->post_tenure: %s\n" % e)
-
-print("All DONE!")
