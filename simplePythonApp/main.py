@@ -33,7 +33,7 @@ except ApiException as e:
 
 # create an instance of the API class
 api_instance = swagger_client.DefaultApi(swagger_client.ApiClient(configuration))
-employee_name = 'employee_name_example' # str | The name of the new Employee
+employee_name = 'Roan Song' # str | The name of the new Employee
 start_date = '2013-10-20' # date | The date (YYYY-MM-DD) on which the employee started. If not provided, the current date will be used. (optional)
 
 try:
